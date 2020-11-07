@@ -16,14 +16,14 @@ nav{
 border-right: 1px solid #81c784; */
     background-color: #343A40;
     font-size: medium;
+ 
+
     text-decoration: none;
     /* transform: translateX(100rem); */
     /* animation: slideIn 0.5s forwards; */
     transition: background-color 0.5s;
-    
     margin: 0px 15px;
     /* width: 120px; */
-
     /* -moz-box-shadow: 1px 1px 5px #999;
     -webkit-box-shadow: 1px 1px 5px #999; */
         /* box-shadow: 1px 1px 5px #999; */
@@ -57,13 +57,14 @@ border-right: 1px solid #81c784; */
 }
 
 .button{
-    padding: 10px 20px;
+    padding: 10px 0px;
     margin: 0px 10px;
     text-decoration: none;
   background-color: #81c784;
   color: #04151f!important;
     border-radius: 30px;
     transition: all 0.5s ease;
+   
   
   }
 .button:hover{
@@ -85,6 +86,8 @@ border-right: 1px solid #81c784; */
     .nav-link{
         margin: 0px;
         width: 100%;
+        padding-left: 30px!important;
+
     }
 }
 

@@ -5,7 +5,7 @@ nav{
 }
 
 .navbar-dark{
-  background-color: #81c784;
+  background-color: #343A40;
 
 }
 .navbar-nav{
@@ -16,14 +16,13 @@ nav{
 border-right: 1px solid #81c784; */
   background-color: #343A40;
   font-size: medium;
+
   text-decoration: none;
   /* transform: translateX(100rem); */
   /* animation: slideIn 0.5s forwards; */
   transition: background-color 0.5s;
-  
   margin: 0px 15px;
   /* width: 120px; */
-
   /* -moz-box-shadow: 1px 1px 5px #999;
   -webkit-box-shadow: 1px 1px 5px #999; */
       /* box-shadow: 1px 1px 5px #999; */
@@ -56,26 +55,6 @@ border-right: 1px solid #81c784; */
   
 }
 
-
-@keyframes slideIn{
-  from{}
-  to{
-      transform: translateX(0);
-  }
-}
-
-@media(max-width:992px){
-  .navbar-nav{
-      margin: 0px;
-  }
- 
-  .nav-link{
-      margin: 0px;
-      width: 100%;
-  }
-
-}
-
 .button{
   padding: 10px 20px;
   margin: 0px 10px;
@@ -89,6 +68,25 @@ color: #04151f!important;
 .button:hover{
   background-color: #04151f;
   color: #81c784  ;
+}
+
+@keyframes slideIn{
+  from{}
+  to{
+      transform: translateX(0);
+  }
+}
+
+@media(max-width:992px){
+  .navbar-nav{
+      margin: 0px;
+  }
+  .nav-link{
+      margin: 0px;
+      width: 100%;
+      padding-left: 30px!important;
+
+  }
 }
 
 /* Modal */

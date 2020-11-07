@@ -12,7 +12,13 @@
     "body-parser": "^1.19.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "firebase-admin": "^9.3.0",
+    "googleapis": "^64.0.0",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.4.15",
     "nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }
