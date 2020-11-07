@@ -55,6 +55,10 @@ app.get('/organization/manageCurrent', (req,res) => {
     res.render('manageCurrentEvents');
 });
 
+app.post('/organization/manageCurrent', (req,res) => {
+
+});
+
 app.get('/organization/manageCurrent/:eventId', (req,res) => {
 
     res.render('events');
@@ -70,19 +74,32 @@ app.get('/organization/manageProfile', (req,res) => {
     res.render('manageProfile');
 });
 
+app.post('/organization/manageProfile', (req,res) => {
+
+});
+
 app.get('/organization/create', (req,res) => {
 
-    res.render('reateEvent');
+    res.render('createEvent');
+});
+
+app.post('/organization/create', (req,res) => {
+
+    res.redirect('/organization/manageCurrent');
+});
+
+app.get('/organization/manageOrganisers', (req,res) => {
+
+    res.render('mangeOrganisers');
+});
+
+app.post('/organization/manageOrganisers', (req,res) => {
+
 });
 
 app.post('/contact', (req,res)=> {
     console.log(req.body);
     res.redirect('back'); 
-});
-
-app.get('/aboutus', (req,res) => {
-
-    res.render('aboutus');
 });
 
 // listen on local host or service host
