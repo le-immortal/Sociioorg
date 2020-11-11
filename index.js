@@ -12,30 +12,18 @@ app.use(bodyParser.urlencoded({ extended:true,  useUnifiedTopology: true }));
 app.use(express.static("public"));
 
 
+
 var admin = require("firebase-admin");
 
+var serviceAccount = require("serviceKey.json");
 
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://sociio-fcc40.firebaseio.com"
+});
 
-
-
-async function initializeAppSA() {
-    // [START initialize_app_service_account]
-  
-    const serviceAccount = require('/home/abhinav/Downloads/serviceAccountKey.json');
-  
-    admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount)
-    });
-  
-    const db = admin.firestore();
-  
-    // [END initialize_app_service_account]
-    return db;
-  }
-  
-
-const db = initializeAppSA();
-
+const organization = require('./routes/organization.js');
+app.use('/organization', organization);
 
 app.use(logger('dev'));
 
@@ -62,8 +50,7 @@ app.get('/users', (req,res) => {
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
 dotenv.config();
-var mailer = require('./routes/contact');
-app.use('/contact',(req, res) => {
+    app.use('/contact',(req, res) => {
     let transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
