@@ -10,20 +10,31 @@ app.set('views', './views');
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({ extended:true,  useUnifiedTopology: true }));
 app.use(express.static("public"));
-
-
+var firebase = require('firebase');
+const firebaseConfig = {
+    apiKey: "AIzaSyDsPYloQohhbO-pWgPkS7hUEr9RYp2f-xk",
+    authDomain: "sociio-fcc40.firebaseapp.com",
+    databaseURL: "https://sociio-fcc40.firebaseio.com",
+    projectId: "sociio-fcc40",
+    storageBucket: "sociio-fcc40.appspot.com",
+    messagingSenderId: "657686913396",
+    appId: "1:657686913396:web:597d3457f7316b66a8cc21",
+    measurementId: "G-YL786TV4Y9"
+  };
+firebase.initializeApp(firebaseConfig);
 
 var admin = require("firebase-admin");
 
-var serviceAccount = require("serviceKey.json");
+var serviceAccount = require("./serviceKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://sociio-fcc40.firebaseio.com"
 });
 
-const organization = require('./routes/organization.js');
-app.use('/organization', organization);
+
+const organizationRoute = require('./routes/organization.js');
+app.use('/organisation', organizationRoute);
 
 app.use(logger('dev'));
 
@@ -36,6 +47,10 @@ app.get('/', (req, res) => {
     }
 });
 
+app.get('/verify', (req, res) =>{
+    res.render('verify');
+})
+
 app.get('/aboutus', (req,res) => {
 
     res.render('aboutus');
@@ -45,6 +60,9 @@ app.get('/users', (req,res) => {
     res.render('users');
 });
 
+app.get('/organisation', (req, res) =>{
+    res.render('organisation');
+})
 // Contact Form 
 
 const nodemailer = require('nodemailer');
@@ -68,7 +86,7 @@ dotenv.config();
           rejectUnauthorized: false
         }
       });
-      try {
+      try { 
         var mail = {
             from: req.body.name,
             to: process.env.email,
