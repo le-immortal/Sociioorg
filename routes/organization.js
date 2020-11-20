@@ -1,12 +1,15 @@
 const admin = require('firebase-admin'),
     firebase = require('firebase'),
     express = require('express');
+const { clouddebugger } = require('googleapis/build/src/apis/clouddebugger');
+const { doubleclickbidmanager } = require('googleapis/build/src/apis/doubleclickbidmanager');
 router = express.Router();
 db= admin.firestore();
 
-/* login funciton */
+/* login function */
 async function loggedIn(req, res, next){
     const user = firebase.auth().currentUser;
+    if(user){
     await db.collection('users')
     .doc(user.email)
     .get()
@@ -21,10 +24,17 @@ async function loggedIn(req, res, next){
             res.send('notLoggedIn');
         }
     })
-    
+}
+else{
+    res.send('no user exits');
+}
 }
 
-/* login funciton */
+/* login function */
+
+router.get('/', (req,res) => {
+    res.render('organisation');
+})
 
 router.post('/login', async(req, res) => {
    try{
@@ -39,7 +49,7 @@ router.post('/login', async(req, res) => {
                     console.log(snapshot.data());
                     if( snapshot.data().verified){
                         
-                        res.send(snapshot.data().contact + " ");
+                        res.render('profile', snapshot.data());
                     }
                     else{
                         console.log('not exists');
@@ -50,6 +60,7 @@ router.post('/login', async(req, res) => {
                 })              
             })
             .catch(err =>{
+                console.log(err);
                 res.redirect('/organisation');
             })
    }catch (err) {
@@ -106,14 +117,7 @@ router.post('/signup', async(req,res) => {
                         .then(doc => {
                             return console.log('Created:', doc.id); // eslint-disable-next-line handle-callback-err
                         });
-                        var user = firebase.auth().currentUser;
-
-                        user.sendEmailVerification().then(function() {
-                            console.log('sent');
-                        }).catch((err)=> {
-                            console.log(err);
-                        });
-                                                res.redirect("/verify");
+                 res.redirect("/verify");
                 } catch (err) {
                     console.log(err);
                 }
@@ -130,22 +134,22 @@ router.post('/signup', async(req,res) => {
     }
 })
 
-router.get('/all', async(req, res) => {
-    try {
-        await db
-            .collection('users')
-            .doc('rjzPct4P8n43kBoFUvWX')
-            .get()
-            .then(snapshot => {
-                return res.send(snapshot.data().emailVerified);
-            });
-        
-    } catch (err) {
-        console.log(err);
+router.get('/profile', loggedIn,  async(req, res) =>{
+    try{
+        var user =await firebase.auth().currentUser;
+        db.collection('users')
+          .doc(user.email)
+          .get()
+          .then(snapshot =>{
+              console.log(snapshot.data());
+              console.log('profile enterd');
+              res.render('profile', snapshot.data());
+          })
     }
-    
+    catch (err){
+        res.send(err);
+    }
 })
-
 
 
 module.exports = router;

@@ -10,6 +10,7 @@ app.set('views', './views');
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({ extended:true,  useUnifiedTopology: true }));
 app.use(express.static("public"));
+app.use('/organisation/', express.static('public')); 
 var firebase = require('firebase');
 const firebaseConfig = {
     apiKey: "AIzaSyDsPYloQohhbO-pWgPkS7hUEr9RYp2f-xk",
@@ -33,8 +34,6 @@ admin.initializeApp({
 });
 
 
-const organizationRoute = require('./routes/organization.js');
-app.use('/organisation', organizationRoute);
 
 app.use(logger('dev'));
 
@@ -60,10 +59,12 @@ app.get('/users', (req,res) => {
     res.render('users');
 });
 
-app.get('/organisation', (req, res) =>{
-    res.render('organisation');
-})
+const organizationRoute = require('./routes/organization.js');
+app.use('/organisation', organizationRoute);
+
+
 // Contact Form 
+
 
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
