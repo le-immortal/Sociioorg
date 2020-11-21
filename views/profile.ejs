@@ -31,11 +31,11 @@
             <a class="nav-link active" href="/"><span><i class="fa fa-home" aria-hidden="true"></i> Home</span></a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="users"><span><i class="fa fa-users" aria-hidden="true"></i> Users</span></a>
+            <a class="nav-link" href="/users"><span><i class="fa fa-users" aria-hidden="true"></i> Users</span></a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="aboutus"><span><i class="fa fa-user-circle-o" aria-hidden="true"></i> About
+            <a class="nav-link" href="/aboutus"><span><i class="fa fa-user-circle-o" aria-hidden="true"></i> About
                 Us</span></a>
           </li>
           <li class="nav-item">
@@ -43,7 +43,7 @@
                   class="fa fa-address-book-o" aria-hidden="true"></i>
                 Contact Us</span></a></li>
           <li class="nav-item ">
-            <a class="nav-link button" href="organisation"><span><i class="fa fa-sitemap" aria-hidden="true"></i>
+            <a class="nav-link button" href="#"><span><i class="fa fa-sitemap" aria-hidden="true"></i>
                 Organization</span></a>
           </li>
 
@@ -103,7 +103,7 @@
       </div>
     </div>
   </div>
-  <div class="container mt-4 pt-4">
+  <div class="container profile">
     <div class="row mt-4 pt-2 mr-auto float-right">
       <a href="/organisation/logout" class="btn btn-dark">Logout</a>
     </div>
@@ -114,12 +114,62 @@
 
       </div>
       <div class="col-12 col-sm-4 align-self-center">
-        <h1> <%= orgname %> </h1>
+        <h1 style="text-align: left;"> <%= orgname %> </h1>
       </div>
+    </div>
+    <div class="row " style="margin-top: 50px;">
+      <!-- <div class="card-deck"> -->
+        
+      <div class="col-md-3 col-sm-6 mt-2 mb-2">
+        <a href="new" class="card-link">
+        <div class="card ">
+          <i class="fa fa-3x fa-plus-circle mt-4"></i>
+          <div class="card-body">
+            <h5 class="card-title">Create New Event</h5>
+          </div>
+        </div>
+      </a>
+
+      </div>
+      <div class="col-md-3 col-sm-6 mt-2 mb-2">
+        <a href="current" class="card-link">
+        <div class="card ">
+          <i class="fa fa-3x fa-calendar-alt mt-4"></i>
+          <div class="card-body">
+            <h5 class="card-title">Manage Current Events</h5>
+          </div>
+        </div>
+        </a>
+      </div>
+      <div class="col-md-3 col-sm-6 mt-2 mb-2">
+        <a href="profile" class="card-link">
+        <div class="card ">
+          <i class="fa fa-3x fa-user mt-4"></i>
+          <div class="card-body">
+            <h5 class="card-title">Manage Profile</h5>
+          </div>
+        </div>
+        </a>
+      </div>
+      <div class="col-md-3 col-sm-6 mt-2 mb-2">
+        <a href="events" class="card-link">
+        <div class="card ">
+          <i class="fa fa-3x fa-calendar-check-o mt-4"></i>
+          <div class="card-body">
+            <h5 class="card-title">Past Events</h5>
+          </div>
+        </div>
+        </a>
+      </div>
+      
+
+       
+       
+      <!-- </div>   -->
     </div>
   </div>
 
-
+ 
 
   <footer class="jumbo mt-auto" style="background-color: #04151f; color: #f5f5f5;" id="footer">
     <div class="container">

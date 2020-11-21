@@ -46,10 +46,6 @@ app.get('/', (req, res) => {
     }
 });
 
-app.get('/verify', (req, res) =>{
-    res.render('verify');
-})
-
 app.get('/aboutus', (req,res) => {
 
     res.render('aboutus');

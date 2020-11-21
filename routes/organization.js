@@ -32,8 +32,34 @@ else{
 
 /* login function */
 
-router.get('/', (req,res) => {
-    res.render('organisation');
+router.get('/', async(req,res) => {
+    try{
+        var user =await firebase.auth().currentUser;
+        if(user){
+        db.collection('users')
+          .doc(user.email)
+          .get()
+          .then(snapshot =>{
+            if( snapshot.data().verified){
+                        
+                res.render('profile', snapshot.data());
+            }
+            else{
+                console.log('not exists');
+               
+                res.render('verify');
+                
+            }
+              
+          })
+        }
+        else{
+            res.render('organisation');
+        }
+    }
+    catch (err){
+        res.send(err);
+    }
 })
 
 router.post('/login', async(req, res) => {
@@ -49,12 +75,12 @@ router.post('/login', async(req, res) => {
                     console.log(snapshot.data());
                     if( snapshot.data().verified){
                         
-                        res.render('profile', snapshot.data());
+                        res.redirect('/organisation');
                     }
                     else{
                         console.log('not exists');
                        
-                        res.redirect('/verify');
+                        res.render('verify');
                         
                     }
                 })              
@@ -117,7 +143,7 @@ router.post('/signup', async(req,res) => {
                         .then(doc => {
                             return console.log('Created:', doc.id); // eslint-disable-next-line handle-callback-err
                         });
-                 res.redirect("/verify");
+                 res.render('verify');
                 } catch (err) {
                     console.log(err);
                 }
@@ -134,22 +160,6 @@ router.post('/signup', async(req,res) => {
     }
 })
 
-router.get('/profile', loggedIn,  async(req, res) =>{
-    try{
-        var user =await firebase.auth().currentUser;
-        db.collection('users')
-          .doc(user.email)
-          .get()
-          .then(snapshot =>{
-              console.log(snapshot.data());
-              console.log('profile enterd');
-              res.render('profile', snapshot.data());
-          })
-    }
-    catch (err){
-        res.send(err);
-    }
-})
 
 
 module.exports = router;
