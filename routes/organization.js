@@ -1,10 +1,13 @@
 const admin = require('firebase-admin'),
     firebase = require('firebase'),
-    express = require('express');
+    express = require('express'),
+    bodyParser = require('body-parser');
 const { clouddebugger } = require('googleapis/build/src/apis/clouddebugger');
 const { doubleclickbidmanager } = require('googleapis/build/src/apis/doubleclickbidmanager');
 router = express.Router();
+router.use(bodyParser.json());
 db= admin.firestore();
+const eventRouter = require('./events');
 
 /* login function */
 async function loggedIn(req, res, next){
@@ -144,6 +147,6 @@ router.post('/signup', async(req,res) => {
     }
 })
 
-
+router.route('/events', eventRouter);
 
 module.exports = router;

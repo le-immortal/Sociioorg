@@ -221,11 +221,11 @@ nav{
   }
   .card:hover{
     scale: 1.02;
-    box-shadow: 4px 4px 10px #04151f;
-    -moz-box-shadow: 4px 4px 10px #04151f;
-    -webkit-box-shadow: 4px 4px 10px #04151f;
+    box-shadow: 4px 4px 10px #81c784;
+    -moz-box-shadow: 4px 4px 10px #81c784;
+    -webkit-box-shadow: 4px 4px 10px #81c784;
     z-index: 1;
-  
+    color: #337136;
   }
   /* 
   .card-text{
