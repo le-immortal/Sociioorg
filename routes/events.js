@@ -8,4 +8,10 @@ router = express.Router();
 router.use(bodyParser.json());
 db= admin.firestore();
 
-router.get('/', )
+router.get('/new', (req,res) => {
+    res.render('newEvent');
+
+});
+
+
+module.exports = router;

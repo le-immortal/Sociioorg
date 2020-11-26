@@ -11,6 +11,7 @@ app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({ extended:true,  useUnifiedTopology: true }));
 app.use(express.static("public"));
 app.use('/organisation/', express.static('public')); 
+app.use('/organisation/event', express.static('public')); 
 var firebase = require('firebase');
 const firebaseConfig = {
     apiKey: "AIzaSyDsPYloQohhbO-pWgPkS7hUEr9RYp2f-xk",
