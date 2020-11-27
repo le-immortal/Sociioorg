@@ -18,6 +18,12 @@ admin.initializeApp({
 
 db= admin.firestore();
 
+
+router.get('/new', (req,res) => {
+    res.render('newEvent');
+
+});
+
 app.get('/organization/manageCurrent', (req,res) => {
 
     res.render('manageCurrentEvents');
@@ -98,3 +104,5 @@ app.post('/organization/create', (req,res) => {
         // redirect somewhere else
     });
 });
+
+module.exports = router;

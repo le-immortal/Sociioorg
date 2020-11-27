@@ -13,7 +13,7 @@ const eventRouter = require('./events');
 async function loggedIn(req, res, next){
     var user = firebase.auth().currentUser;
     if(user){
-    await db.collection('organisers')
+    await db.collection('organisation')
     .doc(user.uid)
     .get()
     .then(snapshot => {
@@ -39,7 +39,7 @@ router.get('/', async(req,res) => {
     try{
         var user =await firebase.auth().currentUser;
         if(user){
-        db.collection('organisers')
+        db.collection('organisation')
           .doc(user.uid)
           .get()
           .then(snapshot =>{
@@ -85,7 +85,8 @@ router.get('/userloggedin',loggedIn, (req, res) =>{
 })
 
 router.get('/logout', async(req, res) => {
-    try {
+    try {app.get('/organisation/event/new',(req,res) => {
+    })
         var user = firebase.auth().currentUser;
         await firebase
             .auth()
@@ -124,7 +125,7 @@ router.post('/signup', async(req,res) => {
                         uid: user.uid
                         }
                     await db
-                        .collection('organisers')
+                        .collection('organisation')
                         .doc(user.uid)
                         .set(data)
                         .then(doc => {
@@ -147,6 +148,6 @@ router.post('/signup', async(req,res) => {
     }
 })
 
-router.route('/events', eventRouter);
+router.use('/event', eventRouter);
 
 module.exports = router;
