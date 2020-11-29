@@ -17,7 +17,6 @@ async function loggedIn(req, res, next){
     .doc(user.uid)
     .get()
     .then(snapshot => {
-        console.log(snapshot.data());
         if(snapshot.data().isVerified){
        
             next();
@@ -85,8 +84,7 @@ router.get('/userloggedin',loggedIn, (req, res) =>{
 })
 
 router.get('/logout', async(req, res) => {
-    try {app.get('/organisation/event/new',(req,res) => {
-    })
+    try {
         var user = firebase.auth().currentUser;
         await firebase
             .auth()
