@@ -19,7 +19,7 @@
 <body style="background-color: #f5f5f5;" class="d-flex flex-column min-vh-100">
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-default fixed-top">
-      <a class="navbar-brand" href="#"><img src="assets/imgs/navlogo.png" height="50px" alt=""></a>
+      <a class="navbar-brand" href="/" target="_blank"><img src="assets/imgs/navlogo.png" height="50px" alt=""></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -28,86 +28,29 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item ">
-            <a class="nav-link active" href="/"><span><i class="fa fa-home" aria-hidden="true"></i> Home</span></a>
+            <a class="nav-link " href="/organisation/event/new"><span><i class="fa fa-plus-circle"></i> New Event</span></a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="/users"><span><i class="fa fa-users" aria-hidden="true"></i> Users</span></a>
+            <a class="nav-link" href="/organisation/event/manage"><span><i class="fa  fa-calendar-alt "></i> </i> Manage Event</span></a>
           </li>
-
+          
           <li class="nav-item">
-            <a class="nav-link" href="/aboutus"><span><i class="fa fa-user-circle-o" aria-hidden="true"></i> About
-                Us</span></a>
+            <a class="nav-link active" href="/organisation/profile"><span><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal"><span><i
-                  class="fa fa-address-book-o" aria-hidden="true"></i>
-                Contact Us</span></a></li>
+            <a class="nav-link" href="/organisation/event/past"><span><i class="fa  fa-calendar-check-o"></i> Past Event</span></a>
+          </li>
           <li class="nav-item ">
-            <a class="nav-link button" href="#"><span><i class="fa fa-sitemap" aria-hidden="true"></i>
-                Organization</span></a>
+            <a class="nav-link button" href="/organisation/logout"><span><i class="fa fa-sign-out" aria-hidden="true"></i> 
+                Logout</span></a>
           </li>
-
+          </ul>
       </div>
     </nav>
   </header>
-  <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Connect with Us</h5>
-          <button type="button" class="close" data-dismiss="modal" style="color: #fff;" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row row-content">
-
-            <div class="col-12">
-              <form action="/contact" method="post" enctype=”multipart/form-data”>
-                <div class="form-group row">
-                  <label for="name" class="col-12 col-md-3 ml-2 col-form-label"> Name</label>
-                  <div class="col-md-8 mr-1">
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Name">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="telnum" class="col-12 col-md-3 ml-2 col-form-label">Contact No.</label>
-                  <div class="col-md-8 mr-1">
-                    <input type="tel" class="form-control " id="telnum" name="telnum" placeholder="Tel. number">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="emailid" class="col-12 col-md-3 ml-2 col-form-label">Email</label>
-                  <div class="col-md-8 mr-1">
-                    <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email">
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                  <label for="message" class="col-12 ml-2 col-form-label">Your Message</label>
-                  <div class="col-md-11 ml-2">
-                    <textarea class="form-control" id="message" name="message" rows="6"></textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="ml-2 col-md-10">
-                    <input type="submit" class="btn btn-dark" value="Connect">
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
+ 
   <div class="container profile">
-    <div class="row mt-4 pt-2 mr-auto float-right">
-      <a href="/organisation/logout" class="btn btn-dark">Logout</a>
-    </div>
-    <br>  
+    <br>
     <div class="row ">
       <div class="col-12 col-sm-4 align-self-center">
         <img   style="border-radius: 50%;width: 100px;" src="assets/imgs/aboutus/dummy.jpg" alt="Card image cap">
@@ -132,7 +75,7 @@
 
       </div>
       <div class="col-md-3 col-sm-6 mt-2 mb-2">
-        <a href="event/current" class="card-link">
+        <a href="event/manage" class="card-link">
         <div class="card ">
           <i class="fa fa-3x fa-calendar-alt mt-4"></i>
           <div class="card-body">

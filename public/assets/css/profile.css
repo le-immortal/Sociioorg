@@ -212,7 +212,7 @@ nav{
 
   .card{
     overflow-y: auto;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     width:auto;
     height: 100%;
     background-color: #f5f5f5;
@@ -220,7 +220,7 @@ nav{
     text-align: center;
   }
   .card:hover{
-    scale: 1.02;
+    scale: 1;
     box-shadow: 4px 4px 10px #81c784;
     -moz-box-shadow: 4px 4px 10px #81c784;
     -webkit-box-shadow: 4px 4px 10px #81c784;

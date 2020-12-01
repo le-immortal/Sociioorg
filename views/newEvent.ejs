@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/signin.css">
+  <link rel="stylesheet" href="assets/css/events.css">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/imgs/favicon.png" type="image/gif" sizes="16x16">
 
@@ -16,106 +16,54 @@
   <title>Organisation</title>
 </head>
 
-<body style="background-color: #81c784;" class="d-flex flex-column min-vh-100">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-default fixed-top">
-          <a class="navbar-brand" href="/"><img src="assets/imgs/navlogo.png" height="50px" alt=""></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-    
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item ">
-                <a class="nav-link active" href="/"><span><i class="fa fa-home" aria-hidden="true"></i> Home</span></a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link" href="/users"><span><i class="fa fa-users" aria-hidden="true"></i> Users</span></a>
-              </li>
-              
-              <li class="nav-item">
-                <a class="nav-link" href="/aboutus"><span><i class="fa fa-user-circle-o" aria-hidden="true"></i> About
-                    Us</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal"><span><i
-                      class="fa fa-address-book-o" aria-hidden="true"></i>
-                    Contact Us</span></a></li>
-                    <li class="nav-item ">
-                <a class="nav-link button" href="/organisation" ><span><i class="fa fa-sitemap" aria-hidden="true"></i> Organization</span></a>
-              </li>
-              
-          </div>
-        </nav>
-      </header>
-  <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Connect with Us</h5>
-          <button type="button" class="close" data-dismiss="modal" style="color: #fff;" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row row-content">
+<body style="background-color: #f5f5f5;" class="d-flex flex-column min-vh-100">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-default fixed-top">
+      <a class="navbar-brand" href="/" target="_blank"><img src="assets/imgs/navlogo.png" height="50px" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <div class="col-12">
-              <form action="/contact" method="post" enctype=”multipart/form-data”>
-                <div class="form-group row">
-                  <label for="name" class="col-12 col-md-3 ml-2 col-form-label"> Name</label>
-                  <div class="col-md-8 mr-1">
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Name">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="telnum" class="col-12 col-md-3 ml-2 col-form-label">Contact No.</label>
-                  <div class="col-md-8 mr-1">
-                    <input type="tel" class="form-control " id="telnum" name="telnum" placeholder="Tel. number">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="emailid" class="col-12 col-md-3 ml-2 col-form-label">Email</label>
-                  <div class="col-md-8 mr-1">
-                    <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email">
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                  <label for="message" class="col-12 ml-2 col-form-label">Your Message</label>
-                  <div class="col-md-11 ml-2">
-                    <textarea class="form-control" id="message" name="message" rows="6"></textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="ml-2 col-md-10">
-                    <input type="submit" class="btn btn-dark" value="Connect">
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item ">
+            <a class="nav-link active " href="/organisation/event/new"><span><i class="fa fa-plus-circle"></i> New Event</span></a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link " href="/organisation/event/manage"><span><i class="fa  fa-calendar-alt "></i> </i> Manage Event</span></a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/organisation/profile"><span><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/organisation/event/past"><span><i class="fa  fa-calendar-check-o"></i> Past Event</span></a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link button" href="/organisation/logout"><span><i class="fa fa-sign-out" aria-hidden="true"></i> 
+                Logout</span></a>
+          </li>
+          </ul>
 
       </div>
-    </div>
-  </div>
+    </nav>
+  </header>
 
-<div class="container mt-4 pt-4">
-  <div class="row mt-4 pt-2 mr-auto float-right">
-    <a href="/organisation/logout" class="btn btn-dark">Logout</a>
-    
-  </div>
+<div class="container mt-4 pt-4 ml-0">
+ <a href="/organisation" style="text-decoration: none;color: #04151f;"> <i class="fa fa-1x fa-home" style="margin-top: 80px;" aria-hidden="true"></i> Home
+</a> <br>
 </div>
-<div class="container p-4" >
+<div class="container mb-4" >
+  <h1>Create a New Event</h1>
+  <span>Get started with managing the event</span>
+  <hr>
   <div class="card " style="align-self: center;align-content: center;">
     <div class="card-body mt-2 justify-content-center">
       <div class="col-12 justify-content-center">
         <form action="/organisation/event/new" method="post" enctype=”multipart/form-data”>
           <div class="form-group row">
-            <label for="organisation" class="col-12 col-md-3 offset-md-1 col-form-label">Event's Name</label>
+            <label for="name" class="col-12 col-md-3 offset-md-1 col-form-label">Event's Name</label>
             <div class="col-md-6">
               <input type="text" class="form-control" id="name" name="name"
                 placeholder="Event's Name" /required>
@@ -153,7 +101,7 @@
     </div>
   </div>
 </div>
-<footer class="jumbo mt-auto" style="background-color: #04151f; color: #f5f5f5;" id="footer">
+<footer class="jumbo mt-4" style="background-color: #04151f; color: #f5f5f5;" id="footer">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-5 col-sm-6 " style="text-align: center;">

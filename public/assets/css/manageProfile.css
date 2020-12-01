@@ -239,14 +239,14 @@ nav{
     background-color: #94C0A1!important;
     padding: 20px;
   }
-  .card:hover{
+  /* .card:hover{
     scale: 1;
     box-shadow: 4px 4px 10px #04151f;
     -moz-box-shadow: 4px 4px 10px #04151f;
     -webkit-box-shadow: 4px 4px 10px #04151f;
     z-index: 1;
   
-  }
+  } */
   /* 
   .card-text{
   display: none;}
@@ -255,7 +255,9 @@ nav{
     display: block;
   } */
   
-  
+  ul:nth-child(even){
+    background-color: black;
+  }
   
   /* Footer */
   
