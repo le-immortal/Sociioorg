@@ -6,6 +6,7 @@ const { clouddebugger } = require('googleapis/build/src/apis/clouddebugger');
 const { doubleclickbidmanager } = require('googleapis/build/src/apis/doubleclickbidmanager');
 const ejs=require("ejs");
 const serviceAccount = require('./sociio-fcc40-firebase-adminsdk-ou9bf-c896166075.json');
+const openGeocoder = require('node-open-geocoder');
 router = express.Router();
 router.use(bodyParser.json());
 router.set('views', './views');
@@ -33,6 +34,15 @@ app.post('/organization/manageCurrent', (req,res) => {
     const ID = req.body.eventId;
 db.collection('events').doc(ID).get().then(doc =>{
     if(doc.exists){
+        openGeocoder().geocode(req.body.location).end((err, response) => {
+            if(!err){
+                const foundLongitude = response.longitude;
+                const foundLatitude = response.latitude;    
+            }
+            else{
+                console.log('no such location exists');
+            }
+        });
         db.collection('events').doc(ID).update({
             organisationId: req.body.organisationId,
             dateTime: req.body.dateTime,
@@ -41,6 +51,8 @@ db.collection('events').doc(ID).get().then(doc =>{
             isFinished: req.body.isFinished,
             eventName: req.body.eventName,
             location: req.body.location,
+            latitude: foundLatitude,
+            longitude: foundLongitude
         });
         // redirect somewhere else
     }
@@ -87,6 +99,17 @@ app.get('/organization/create', (req,res) => {
 });
 
 app.post('/organization/create', (req,res) => {
+    
+    openGeocoder().geocode(req.body.location).end((err, response) => {
+        if(!err){
+            const foundLongitude = response.longitude;
+            const foundLatitude = response.latitude;    
+        }
+        else{
+            console.log('no such location exists');
+        }
+    });
+
     const newEventData = {
             organisationId: req.body.organisationId,
             dateTime: req.body.dateTime,
@@ -95,8 +118,8 @@ app.post('/organization/create', (req,res) => {
             isFinished: false,
             eventName: req.body.eventName,
             location: req.body.location,
-            latitude: req.body.latitude,
-            longitude: req.body.longitude,
+            latitude: foundLatitude,
+            longitude: foundLongitude
     }
 
     db.collection('events').add(newEventData).then(() => {
