@@ -11,30 +11,7 @@ app.use(bodyParser.urlencoded({ extended:true,  useUnifiedTopology: true }));
 app.use(express.static("public"));
 app.use('/organisation/', express.static('public')); 
 app.use('/organisation/event', express.static('public')); 
-var firebase = require('firebase');
-const firebaseConfig = {
-    apiKey: "AIzaSyDsPYloQohhbO-pWgPkS7hUEr9RYp2f-xk",
-    authDomain: "sociio-fcc40.firebaseapp.com",
-    databaseURL: "https://sociio-fcc40.firebaseio.com",
-    projectId: "sociio-fcc40",
-    storageBucket: "sociio-fcc40.appspot.com",
-    messagingSenderId: "657686913396",
-    appId: "1:657686913396:web:597d3457f7316b66a8cc21",
-    measurementId: "G-YL786TV4Y9"
-  };
-firebase.initializeApp(firebaseConfig);
-
-var admin = require("firebase-admin");
-
-var serviceAccount = require("./serviceKey.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://sociio-fcc40.firebaseio.com"
-});
-
-
-
+app.use('/organisation/event/organiser', express.static('public')); 
 app.use(logger('dev'));
 
 app.get('/', (req, res) => {
@@ -55,9 +32,6 @@ app.get('/users', (req,res) => {
     res.render('users');
 });
 
-const organizationRoute = require('./routes/organization.js');
-app.use('/organisation', organizationRoute);
-
 
 // Contact Form 
 
@@ -73,9 +47,9 @@ dotenv.config();
         service: 'gmail',
         auth: {
               type: "OAUTH2",
-              user: process.env.email,  
               clientId: process.env.clientId,
               clientSecret: process.env.clientSecret,
+              user: process.env.email,
               refreshToken: process.env.refreshToken,
               expires: 3599
         },
@@ -92,7 +66,6 @@ dotenv.config();
                 "EmailId: " +req.body.emailid + '\n' +
                 "Phone: " + req.body.telnum + '\n'+ 
                 "Message: " +req.body.message
-            
         };
     
         transporter.sendMail(mail, function (err, info) {
